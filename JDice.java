@@ -29,13 +29,13 @@ public class JDice {
     static final String ROLL="Roll Selection";
     static void showError(String s) {
     }
-    private static class JDiceListener1 implements ActionListener {
+    private static class JDiceListener implements ActionListener {
 	Vector<String> listItems;
 	JList resultList;
 	JComboBox inputBox;
 	long lastEvent; /* hack to prevent double events with text
 			   entry */
-	public JDiceListener1(JList jl, JComboBox jcb) {
+	public JDiceListener(JList jl, JComboBox jcb) {
 		// TODO Auto-generated constructor stub
 	}
 	public void JDiceListener(JList resultList , JComboBox inputBox){
@@ -66,7 +66,7 @@ public class JDice {
 		doClear();
 	    }
 	    else {
-//		doRoll(null,e.getActionCommand());
+		doRoll(null,e.getActionCommand());
 	    }
 	}
 	private JComboBox getSource() {
@@ -135,7 +135,7 @@ public class JDice {
 	JComboBox jcb=new JComboBox(v);
 	jcb.setEditable(true);
 	c.add(jcb,BorderLayout.NORTH);
-	JDiceListener1 jdl=new JDiceListener1(jl,jcb);
+	JDiceListener jdl=new JDiceListener(jl,jcb);
 	jcb.addActionListener(jdl);
 	JPanel rightSide=new JPanel();
 	rightSide.setLayout(new BoxLayout(rightSide,
