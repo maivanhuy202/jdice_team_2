@@ -28,15 +28,15 @@ public class DiceParser{
 			buff =new StringBuffer(s);
 		}
 		private void munchWhiteSpace() {
-			int index=0;
+			int index = 0;
 			char curr;
-			while(index<buff.length()){
-				curr=buff.charAt(index);
+			while(index < buff.length()){
+				curr = buff.charAt(index);
 				if(!Character.isWhitespace(curr))
 					break;
 				index++;
 			}
-			buff=buff.delete(0,index);
+			buff = buff.delete(0,index);
 		}
 		public boolean isEmpty(){
 			munchWhiteSpace();
