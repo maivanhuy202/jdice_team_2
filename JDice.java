@@ -24,7 +24,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
  */
 public class JDice {
-    static final String CLEAR=Clear;
+    private static final String Clear = null;
+	static final String CLEAR=Clear;
     static final String ROLL="Roll Selection";
     static void showError(String s) {
     }
@@ -34,8 +35,10 @@ public class JDice {
 	JComboBox inputBox;
 	long lastEvent; /* hack to prevent double events with text
 			   entry */
-	public JDice-Listener(JList resultList,
-			     JComboBox inputBox){
+	public JDiceListener(JList jl, JComboBox jcb) {
+		// TODO Auto-generated constructor stub
+	}
+	public void JDiceListener(JList resultList , JComboBox inputBox){
 
 	    this.listItems=new Vector<String>();
 	    this.resultList=resultList;
@@ -47,11 +50,11 @@ public class JDice {
 	    if(e.getWhen()==lastEvent)
 		return;
 	    lastEvent=e.getWhen();
-	    if(egetSource() instanceof JComboBox ||
+	    if(getSource() instanceof JComboBox ||
 	       e.getActionCommand().equals(ROLL)) {
 		String s=inputBox.getSelectedItem().toString();
 		String[] arr=s.split("=");
-		String name=""
+		String name="";
 		for(int i=0;i<arr.length-2;i++) {
 		    name=arr[i]+"=";
 		}
@@ -63,8 +66,12 @@ public class JDice {
 		doClear();
 	    }
 	    else {
-//		doRoll(null,e.getActionCommand());
+		doRoll(null,e.getActionCommand());
 	    }
+	}
+	private JComboBox getSource() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	private void doClear(){
 	    resultList.clearSelection();
